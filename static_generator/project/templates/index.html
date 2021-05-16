@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="{{ main.language }}">
+
+<head>
+
+  <title>{{ main.title }}</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/night-owl.min.css" />
+
+  <link rel="shortcut icon" href="{{ main.favicon }}" type="image/x-icon">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta name="description" content="{{ main.description }}" />
+
+  <meta name="keywords" content="{{ main.keywords }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{{ main.title }}" />
+  <meta property="og:description" content="{{ main.description }}" />
+  <meta property="og:locale" content="{{ main.language }}" />
+  <meta property="og:image" content="{{ main.cover_image }}" />
+
+
+</head>
+
+<body>
+  <div class="content index width mx-auto px2 my4">
+    <section id="about">
+      <span class="h1">{{ main.username }}</span>
+      <div class="about-info-holder">
+        <span>I'm Erol Sinangil, a</span>
+        <span class="js-about-info about-info"></span>
+      </div>
+
+      <p class="sociallinks">
+        Find me in
+        <a class="icon" target="_blank" href="https://github.com/sinangilerol" title="github" />
+         github
+        <span class="fab fa-github" />
+        </a>
+      </p>
+
+      <p class="no-margin-bottom">
+        Take a look at my
+        <a class="icon" target="_blank" href="https://www.linkedin.com/in/erol-sinangil-63352816b" title="linkedin">
+          linkedin <span class="fab fa-linkedin" />
+        </a>
+      </p>
+
+      <p class="no-margin-bottom">
+        Contact me with
+        <a class="icon" target="_blank" href="mailto:erol.sinangil@gmail.com" title="email">
+          email[erol.sinangil@gmail.com] <span class="fa fa-envelope" />
+        </a>
+      </p>
+
+
+    </section>
+
+    <section id="writing">
+      <span class="h1"><a href="writing.html">writings.</a></span>
+      <ul class="post-list">
+        {% for data in data_list %}
+        <li class="post-item">
+          <div class="meta">
+            <time datetime="{{data['datetime']}}" itemprop="datePublished">{{data['date']}}</time>
+          </div>
+          <span>
+            <a href="{{data['hyperlink']}}">
+              {{data['title']}}
+            </a>
+          </span>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section id="tags">
+      <span class="h1">tags.</span>
+      {% for tag in tag_list %}
+      <a class="rounded-pill" href="tags/{{tag['tag_url']}}">{{ tag['tag'] }}</a>
+      {% endfor %}
+    </section>
+
+    <section id="projects">
+      <span class="h1"><a href="{{main.github}}" target="_blank">projects.</a></span>
+      <ul class="project-list">
+        <li class="project-item">
+          <strong><a href="https://github.com/SauDrone" target="_blank">SauDrone</a></strong>:
+          Android phone based flight controller
+        </li>
+        <li class="project-item">
+          <strong><a href="https://play.google.com/store/apps/details?id=com.market.alisveris"
+              target="_blank">Kıyasla</a></strong>:
+          Android App
+        </li>
+        <li class="project-item">
+          <strong><a href="https://play.google.com/store/apps/details?id=com.cancriestudio.iftargerisayim"
+              target="_blank">
+              İftara Ne Kadar Kaldı ?</a></strong>:
+          Android App
+        </li>
+        <li class="project-item">
+          <strong><a href="https://play.google.com/store/apps/details?id=com.cancriestudio.kurulusosmanbilgiyarismasi"
+              target="_blank">
+              Kuruluş Osman: Ödüllü Bilgi Yarışması</a></strong>:
+          Android App
+        </li>
+        <li class="project-item">
+          <strong><a href="https://play.google.com/store/apps/details?id=erol.erol" target="_blank">
+              Tekrarlatıcım</a></strong>:
+          Android App
+        </li>
+
+      </ul>
+    </section>
+  </div>
+
+  <footer id="footer">
+    <div class="footer-left">Copyright &copy; <span id="copyright-year"></span> - {{ main.username }}</div>
+    <div class="footer-right">
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="writing.html">Writing</a></li>
+          <li><a href="{{main.github}}" target="_blank">Projects</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
+  <script src="javascripts/main.js"></script>
+  <script src="src/typed.js"></script>
+</body>
+
+</html>

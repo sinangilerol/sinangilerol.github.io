@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="{{ main.language }}">
+  <head>
+
+    <title>{{ main.title }}</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/main.css" />
+    <link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/night-owl.min.css" />
+
+        <link rel="shortcut icon" href="{{ main.favicon }}" type="image/x-icon">
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    
+        <meta name="description" content="{{ main.description }}" />
+    
+        <meta name="keywords" content="{{ main.keywords }}"/>
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="{{ main.title }}" />
+        <meta property="og:description" content="{{ main.description }}" />
+        <meta property="og:locale" content="{{ main.language }}" />
+        <meta property="og:image" content="{{ main.cover_image }}"/>
+
+  </head>
+
+  <body>
+    <div class="content index width mx-auto px2 my4">
+      <div id="header-post">
+        <a id="menu-icon" class="menu-icon" href="index.html">
+          <span class="fas fa-long-arrow-alt-left"></span>
+          Home
+        </a>
+      </div>
+
+      <section id="archive">
+        <span class="h1"> Writing </span>
+        <ul class="post-list">
+          {% for date in writings%}
+          <h2>{{date}}</h2>
+          {% for writing in writings[date]%}
+          <li class="post-item">
+            <div class="meta">
+              <time datetime="{{writing['datetime']}}" itemprop="datePublished"
+                >{{writing['date']}}</time
+              >
+            </div>
+            <span>
+              <a
+                href="{{writing['hyperlink']}}"
+              >
+              {{writing['title']}}
+              </a>
+            </span>
+          </li>
+          {% endfor %}
+          {% endfor %}
+        </ul>
+      </section>
+    </div>
+
+    
+
+    <footer id="footer" class="article-footer">
+      <div class="footer-left">Copyright &copy; <span id="copyright-year"></span> - {{ main.username }}</div>
+      <div class="footer-right">
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="writing.html">Writing</a></li>
+            <li><a href="{{main.github}}" target="_blank">Projects</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="javascripts/highlight.pack.js"></script>
+    <script src="javascripts/main.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad()
+    </script>
+  </body>
+</html>
